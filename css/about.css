@@ -1,0 +1,313 @@
+/* ============================================
+   TATVA LABS — About Page Styles
+   ============================================ */
+
+/* --- Story Section --- */
+.story {
+  padding: var(--space-4xl) 0;
+}
+
+.story__content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4xl);
+  align-items: center;
+}
+
+.story__text h2 {
+  margin-bottom: var(--space-xl);
+}
+
+.story__text p {
+  margin-bottom: var(--space-lg);
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+}
+
+.story__text p:last-child {
+  margin-bottom: 0;
+}
+
+.story__visual {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.story__graphic {
+  width: 100%;
+  max-width: 400px;
+  aspect-ratio: 1;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-lg);
+  position: relative;
+  overflow: hidden;
+}
+
+.story__graphic::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, var(--color-accent-glow), transparent 60%);
+  pointer-events: none;
+}
+
+.story__graphic-icon {
+  width: 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-glow);
+  border-radius: var(--radius-lg);
+  color: var(--color-accent-light);
+  position: relative;
+}
+
+.story__graphic-icon svg {
+  width: 40px;
+  height: 40px;
+}
+
+.story__graphic-text {
+  font-family: var(--font-display);
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-bold);
+  text-align: center;
+  position: relative;
+}
+
+.story__graphic-subtext {
+  font-size: var(--fs-small);
+  color: var(--color-text-muted);
+  text-align: center;
+  position: relative;
+}
+
+@media (max-width: 768px) {
+  .story__content {
+    grid-template-columns: 1fr;
+    gap: var(--space-2xl);
+  }
+
+  .story__visual {
+    order: -1;
+  }
+
+  .story__graphic {
+    max-width: 300px;
+  }
+}
+
+/* --- Mission & Vision --- */
+.mission-vision {
+  padding: var(--space-4xl) 0;
+}
+
+.mission-vision__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-xl);
+}
+
+.mv-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  position: relative;
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.mv-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-glow);
+}
+
+.mv-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-accent-gradient);
+}
+
+.mv-card__icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-accent-glow);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-xl);
+  color: var(--color-accent-light);
+}
+
+.mv-card__icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.mv-card h3 {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-md);
+}
+
+.mv-card p {
+  font-size: var(--fs-body);
+  line-height: var(--lh-relaxed);
+}
+
+@media (max-width: 640px) {
+  .mission-vision__grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Team Section --- */
+.team {
+  padding: var(--space-5xl) 0;
+}
+
+.team__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-xl);
+}
+
+.team-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.team-card:hover {
+  border-color: var(--color-border-hover);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-glow);
+}
+
+.team-card__avatar {
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-xl);
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  font-weight: var(--fw-bold);
+  color: white;
+  position: relative;
+}
+
+.team-card__avatar--ag {
+  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+}
+
+.team-card__avatar--ar {
+  background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+}
+
+.team-card__avatar--sb {
+  background: linear-gradient(135deg, #10b981, #34d399);
+}
+
+.team-card__avatar--sv {
+  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+}
+
+.team-card__name {
+  font-size: var(--fs-h4);
+  font-weight: var(--fw-semibold);
+  margin-bottom: var(--space-xs);
+}
+
+.team-card__role {
+  font-size: var(--fs-small);
+  color: var(--color-accent-light);
+  font-weight: var(--fw-medium);
+  margin-bottom: var(--space-lg);
+}
+
+.team-card__focus {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs);
+}
+
+.team-card__focus-tag {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--color-text-muted);
+  background: rgba(148, 163, 184, 0.08);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+}
+
+.team-card__socials {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-sm);
+  margin-top: var(--space-lg);
+}
+
+.team-card__social-link {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: rgba(148, 163, 184, 0.06);
+  border: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  transition: all var(--duration-fast) ease;
+}
+
+.team-card__social-link:hover {
+  background: var(--color-accent-glow);
+  border-color: var(--color-accent-primary);
+  color: var(--color-accent-light);
+}
+
+.team-card__social-link svg {
+  width: 14px;
+  height: 14px;
+}
+
+@media (max-width: 1024px) {
+  .team__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .team__grid {
+    grid-template-columns: 1fr;
+    max-width: 360px;
+    margin: 0 auto;
+  }
+}
