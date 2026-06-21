@@ -11,10 +11,15 @@ function Footer({
   }
 
   return (
-    <footer className="bg-black border-t border-gray-800/50 py-16 text-white" id="main-footer">
-      <div className="max-w-7xl mx-auto px-6">
+    <footer className="bg-[#16161a] relative overflow-hidden py-16 text-white" id="main-footer">
+      {/* Top border faded gradient line */}
+      <div className="absolute top-0 inset-x-0 h-[1px] bg-gradient-to-r from-transparent via-gray-850 to-transparent" />
+
+      {/* Subtle background radial glow */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[180px] bg-gradient-to-b from-amber-500/3 via-amber-500/0 to-transparent rounded-full blur-[80px] pointer-events-none" />
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          {/* Brand Info */}
           <div className="flex flex-col gap-4">
             <Link to="/" className="text-xl font-bold tracking-tight text-white" onClick={handleLogoClick}>
               tatva<span className="text-amber-500 font-medium">labs</span>
@@ -25,7 +30,7 @@ function Footer({
             <div className="flex items-center gap-3 mt-2">
               <a 
                 href="mailto:hello@tatvalabs.com" 
-                className="inline-flex items-center justify-center w-8 h-8 rounded-full border border-gray-800 hover:border-gray-600 transition-colors text-white/60 hover:text-white" 
+                className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-gray-850 bg-gray-950/40 hover:border-amber-500/30 hover:bg-amber-500/5 transition-all text-white/60 hover:text-amber-400 shadow-md" 
                 aria-label="Email"
               >
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round">
@@ -108,10 +113,13 @@ function Footer({
           </div>
         </div>
         
+        {/* Bottom Section faded divider */}
+        <div className="w-full h-[1px] bg-gradient-to-r from-transparent via-gray-900 to-transparent mt-16" />
+
         {/* Bottom Section */}
-        <div className="border-t border-gray-800/30 mt-16 pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/40">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-white/40">
           <span>&copy; {new Date().getFullYear()} Tatva Labs. All rights reserved.</span>
-          <span>Built with purpose by <span className="text-white/60">Tatva Labs</span></span>
+          <span>Built with purpose by <span className="text-amber-500 font-semibold">Tatva Labs</span></span>
         </div>
       </div>
     </footer>

@@ -46,11 +46,17 @@ function TeamMemberCard({ member, delay }) {
               transition={{ type: 'spring', stiffness: 150, damping: 12 }}
               className={`w-28 h-28 rounded-full bg-gradient-to-br ${getGradient(member.initials)} flex items-center justify-center text-3xl font-black text-black border border-black/10 z-10 shadow-[0_0_30px_rgba(255,179,71,0.25)] relative overflow-hidden`}
             >
-              {/* Glow filter sheen */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.4)_0%,transparent_70%)]" />
-              <span className="relative z-10 bg-gradient-to-b from-black to-gray-900 bg-clip-text text-transparent">
-                {member.initials}
-              </span>
+              {member.image ? (
+                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+              ) : (
+                <>
+                  {/* Glow filter sheen */}
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.4)_0%,transparent_70%)]" />
+                  <span className="relative z-10 bg-gradient-to-b from-black to-gray-900 bg-clip-text text-transparent">
+                    {member.initials}
+                  </span>
+                </>
+              )}
             </motion.div>
           </div>
 
@@ -74,13 +80,9 @@ function TeamMemberCard({ member, delay }) {
           ))}
         </div>
 
-        {/* BOTTOM: Slide-up Socials Container */}
-        <div className="relative w-full h-8 overflow-hidden z-10 shrink-0 border-t border-gray-900 pt-3 flex items-center justify-center">
-          <motion.div
-            animate={{ y: isHovered ? -2 : 28 }}
-            transition={{ type: 'spring', stiffness: 160, damping: 15 }}
-            className="flex gap-4 justify-center items-center"
-          >
+        {/* BOTTOM: Socials Container */}
+        <div className="relative w-full z-10 shrink-0 border-t border-gray-900 pt-3 flex items-center justify-center">
+          <div className="flex gap-4 justify-center items-center">
             {member.github && (
               <a
                 href={member.github}
@@ -105,16 +107,7 @@ function TeamMemberCard({ member, delay }) {
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
               </a>
             )}
-          </motion.div>
-          
-          {/* Static placeholder text when not hovered */}
-          <motion.span
-            animate={{ opacity: isHovered ? 0 : 1 }}
-            transition={{ duration: 0.2 }}
-            className="absolute bottom-0 text-[10px] font-semibold text-white/30 uppercase tracking-widest pointer-events-none"
-          >
-            Connect Node
-          </motion.span>
+          </div>
         </div>
       </motion.div>
     </Reveal>
@@ -127,7 +120,8 @@ function TeamSection() {
       name: "Awaneesh Gupta",
       role: "Full Stack Developer",
       initials: "AG",
-      focus: ["Frontend", "Backend", "AI Integration", "Product Architecture", "Open Source"],
+      image: "assets/images/awaneesh.png",
+      focus: ["Full Stack Engineering", "AI Integration", "Product Architecture"],
       github: "https://github.com/Awaneesh03",
       linkedin: "https://www.linkedin.com/in/awaneesh-gupta/"
     },
@@ -135,6 +129,7 @@ function TeamSection() {
       name: "Aareev",
       role: "Full Stack Developer",
       initials: "AR",
+      image: "assets/images/aareev.jpg",
       focus: ["Full Stack Engineering", "Software Architecture", "Product Development"],
       github: "https://github.com/Aareevs",
       linkedin: "https://www.linkedin.com/in/aareev-srinivasan/"
@@ -143,14 +138,17 @@ function TeamSection() {
       name: "Shubham Barik",
       role: "Full Stack Developer",
       initials: "SB",
-      focus: ["Backend Systems", "App Engineering", "Web Development"],
+      image: "assets/images/shubham.png",
+      focus: ["Backend Systems", "Application Engineering", "Web Development"],
+      github: "https://github.com/phoenixshubham07",
       linkedin: "https://www.linkedin.com/in/shubham-barik/"
     },
     {
       name: "Shivansh",
       role: "Marketing Lead",
       initials: "SV",
-      focus: ["Business Dev", "Client Relations", "Brand Strategy", "Growth"],
+      image: "assets/images/shivansh.png",
+      focus: ["Business Development", "Client Relations", "Brand Strategy", "Growth & Marketing"],
       linkedin: "https://www.linkedin.com/in/iamshivanshojha/"
     }
   ]

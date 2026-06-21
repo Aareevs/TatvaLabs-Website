@@ -113,10 +113,16 @@ function TeamMemberCard({ member, delay }) {
               animate={{ scale: isHovered ? 1.06 : 1 }}
               className={`w-26 h-26 rounded-full bg-gradient-to-br ${getGradient(member.initials)} flex items-center justify-center text-3xl font-black text-black z-10 shadow-[0_0_25px_rgba(255,179,71,0.25)] relative overflow-hidden`}
             >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.35)_0%,transparent_70%)]" />
-              <span className="relative z-10 bg-gradient-to-b from-black to-gray-900 bg-clip-text text-transparent">
-                {member.initials}
-              </span>
+              {member.image ? (
+                <img src={member.image} alt={member.name} className="w-full h-full object-cover" />
+              ) : (
+                <>
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.35)_0%,transparent_70%)]" />
+                  <span className="relative z-10 bg-gradient-to-b from-black to-gray-900 bg-clip-text text-transparent">
+                    {member.initials}
+                  </span>
+                </>
+              )}
             </motion.div>
           </div>
 
@@ -139,12 +145,9 @@ function TeamMemberCard({ member, delay }) {
           ))}
         </div>
 
-        <div className="relative w-full h-8 overflow-hidden z-10 shrink-0 border-t border-gray-900 pt-3 flex items-center justify-center">
-          <motion.div
-            animate={{ y: isHovered ? -2 : 28 }}
-            transition={{ type: 'spring', stiffness: 160, damping: 15 }}
-            className="flex gap-4 justify-center items-center"
-          >
+        {/* BOTTOM: Socials Container */}
+        <div className="relative w-full z-10 shrink-0 border-t border-gray-900 pt-3 flex items-center justify-center">
+          <div className="flex gap-4 justify-center items-center">
             {member.github && (
               <a
                 href={member.github}
@@ -169,14 +172,7 @@ function TeamMemberCard({ member, delay }) {
                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
               </a>
             )}
-          </motion.div>
-          <motion.span
-            animate={{ opacity: isHovered ? 0 : 1 }}
-            transition={{ duration: 0.2 }}
-            className="absolute bottom-0 text-[10px] font-semibold text-white/30 uppercase tracking-widest pointer-events-none"
-          >
-            Connect Node
-          </motion.span>
+          </div>
         </div>
       </motion.div>
     </Reveal>
@@ -222,6 +218,7 @@ function About({
       name: "Awaneesh Gupta",
       role: "Full Stack Developer",
       initials: "AG",
+      image: "assets/images/awaneesh.png",
       focus: ["Full Stack Engineering", "AI Integration", "Product Architecture"],
       github: "https://github.com/Awaneesh03",
       linkedin: "https://www.linkedin.com/in/awaneesh-gupta/"
@@ -230,6 +227,7 @@ function About({
       name: "Aareev",
       role: "Full Stack Developer",
       initials: "AR",
+      image: "assets/images/aareev.jpg",
       focus: ["Full Stack Engineering", "Software Architecture", "Product Development"],
       github: "https://github.com/Aareevs",
       linkedin: "https://www.linkedin.com/in/aareev-srinivasan/"
@@ -238,13 +236,16 @@ function About({
       name: "Shubham Barik",
       role: "Full Stack Developer",
       initials: "SB",
+      image: "assets/images/shubham.png",
       focus: ["Backend Systems", "Application Engineering", "Web Development"],
+      github: "https://github.com/phoenixshubham07",
       linkedin: "https://www.linkedin.com/in/shubham-barik/"
     },
     {
       name: "Shivansh",
       role: "Marketing Lead",
       initials: "SV",
+      image: "assets/images/shivansh.png",
       focus: ["Business Development", "Client Relations", "Brand Strategy", "Growth & Marketing"],
       linkedin: "https://www.linkedin.com/in/iamshivanshojha/"
     }
@@ -734,147 +735,6 @@ function About({
 
           </div>
         </section>
-
-        {/* SECTION 6 - CTA */}
-        <section className="py-24 bg-[#050505] relative overflow-hidden select-none border-t border-gray-900/40" id="about-cta">
-          
-          {/* Background Concentric Circles and moving beam lines */}
-          <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-            <div className="absolute rounded-full border border-amber-500/5 w-[420px] h-[420px] animate-pulse" />
-            <div className="absolute rounded-full border border-[#ff9f1c]/5 w-[650px] h-[650px] animate-[pulse_4s_infinite_1.5s]" />
-          </div>
-
-          <div className="max-w-5xl mx-auto px-6 relative z-10">
-            <Reveal variant="scale-in">
-              {/* Glass container split panel */}
-              <div className="relative rounded-3xl border border-gray-850 bg-gray-950/40 backdrop-blur-xl p-10 md:p-14 overflow-hidden shadow-2xl flex flex-col md:flex-row items-center justify-between gap-10">
-                
-                {/* Background Grid Lines inside banner */}
-                <AnimatedGrid 
-                  gridSize={40} 
-                  strokeColor="rgba(255, 179, 71, 0.03)" 
-                  beamColor="#ff9f1c"
-                  beams={[
-                    { dir: 'h', pos: 2, delay: 0.5, duration: 6 },
-                    { dir: 'v', pos: 6, delay: 2, duration: 7 }
-                  ]}
-                />
-
-                {/* Left Side Content */}
-                <div className="flex-1 text-left relative z-10 max-w-lg">
-                  <h2 className="text-2xl md:text-4xl font-bold text-white mb-4 leading-tight">
-                    Want to Work <span className="bg-gradient-to-r from-amber-400 to-[#ff9f1c] bg-clip-text text-transparent">With Us</span>?
-                  </h2>
-                  <p className="text-xs md:text-sm text-white/50 mb-8 leading-relaxed">
-                    Drop us a message. Let&apos;s talk engineering scope and timeline estimates for your product launch.
-                  </p>
-                  <Magnetic strength={0.15}>
-                    <Link
-                      to="/contact"
-                      className="inline-block px-7 py-3.5 rounded-full bg-gradient-to-r from-amber-400 to-[#ff9f1c] hover:from-amber-300 hover:to-[#ff9f1c] text-xs font-bold text-black shadow-lg shadow-amber-500/10 transition-all duration-300 text-center"
-                      id="about-cta-btn"
-                    >
-                      Get in Touch
-                    </Link>
-                  </Magnetic>
-                </div>
-
-                {/* Right Side Golden Energy Sphere */}
-                <div className="relative w-40 h-40 flex items-center justify-center shrink-0 z-10">
-                  
-                  {/* Ripple glows radiating from sphere */}
-                  <motion.div
-                    animate={{
-                      scale: [1, 1.6],
-                      opacity: [0.5, 0]
-                    }}
-                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeOut" }}
-                    className="absolute inset-0 rounded-full border border-amber-500/20"
-                  />
-
-                  {/* Contained energy reactor core */}
-                  <motion.div
-                    animate={{
-                      y: [0, -4, 0],
-                      scale: [1, 1.04, 1]
-                    }}
-                    transition={{
-                      y: { duration: 4, repeat: Infinity, ease: "easeInOut" },
-                      scale: { duration: 3.5, repeat: Infinity, ease: "easeInOut" }
-                    }}
-                    style={{
-                      width: '110px',
-                      height: '110px',
-                      background: 'radial-gradient(circle at 35% 35%, #ffffff 0%, #F8C25C 20%, #E5A237 55%, #B86D0A 85%, #3d1b02 100%)',
-                      boxShadow: '0 0 50px rgba(255,170,40,0.45), inset 0 0 25px rgba(255,255,255,0.25)'
-                    }}
-                    className="rounded-full flex items-center justify-center overflow-hidden border border-white/20 select-none relative"
-                  >
-                    {/* Inner glowing core pulse */}
-                    <motion.div
-                      animate={{
-                        opacity: [0.4, 0.7, 0.4],
-                        scale: [0.85, 1.05, 0.85]
-                      }}
-                      transition={{
-                        duration: 2,
-                        repeat: Infinity,
-                        ease: "easeInOut"
-                      }}
-                      style={{
-                        background: 'radial-gradient(circle, rgba(248,194,92,0.4) 0%, transparent 70%)'
-                      }}
-                      className="absolute inset-0 pointer-events-none"
-                    />
-
-                    {/* Subtle glass reflections & high-tech targeting overlay */}
-                    <div className="absolute top-[3px] left-[8px] w-[90px] h-[30px] bg-gradient-to-b from-white/25 to-white/0 rounded-full blur-[0.5px] -rotate-[12deg] pointer-events-none z-10" />
-                    <svg className="absolute inset-0 w-full h-full opacity-[0.12] pointer-events-none" viewBox="0 0 110 110">
-                      <circle cx="55" cy="55" r="45" fill="none" stroke="#ffffff" strokeWidth="0.75" />
-                      <circle cx="55" cy="55" r="30" fill="none" stroke="#ffffff" strokeWidth="0.5" strokeDasharray="3 3" />
-                      <line x1="55" y1="0" x2="55" y2="110" stroke="#ffffff" strokeWidth="0.5" />
-                      <line x1="0" y1="55" x2="110" y2="55" stroke="#ffffff" strokeWidth="0.5" />
-                    </svg>
-
-                    <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none z-10 pt-1">
-                      <span className="text-[7.5px] font-mono text-black font-extrabold uppercase tracking-widest leading-none">REACTOR</span>
-                      <span className="text-[8px] font-mono text-amber-950 font-black leading-tight uppercase tracking-wider mt-1 select-none">CORE</span>
-                    </div>
-                  </motion.div>
-
-                  {/* Tiny orbiting particles */}
-                  <div className="absolute inset-0 pointer-events-none z-20">
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-                      className="absolute inset-0 flex items-center justify-center"
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#F8C25C] shadow-[0_0_8px_#F8C25C] -translate-y-16" />
-                    </motion.div>
-
-                    <motion.div
-                      animate={{ rotate: -360 }}
-                      transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
-                      className="absolute inset-0 flex items-center justify-center"
-                    >
-                      <div className="w-1 h-1 rounded-full bg-[#E5A237] shadow-[0_0_6px_#E5A237] translate-x-14 translate-y-10" />
-                    </motion.div>
-
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 11, repeat: Infinity, ease: "linear" }}
-                      className="absolute inset-0 flex items-center justify-center"
-                    >
-                      <div className="w-1.5 h-1.5 rounded-full bg-[#B86D0A] shadow-[0_0_8px_#F8C25C] -translate-x-15 -translate-y-8" />
-                    </motion.div>
-                  </div>
-                </div>
-
-              </div>
-            </Reveal>
-          </div>
-        </section>
-
       </PageTransition>
 
       <Footer 

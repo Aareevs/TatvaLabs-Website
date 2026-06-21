@@ -58,7 +58,6 @@ function Navbar({
   return (
     <header className={`fixed top-0 w-full z-50 border-b transition-all duration-300 ${scrolled ? 'border-gray-800/80 bg-black/90 backdrop-blur-md shadow-lg' : 'border-transparent bg-transparent'}`}>
       <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Branding Logo */}
         <Link to="/" className="text-xl font-bold tracking-tight text-white" id="nav-logo" onClick={closeMobileMenu}>
           tatva<span className="text-amber-500 font-medium">labs</span>
         </Link>

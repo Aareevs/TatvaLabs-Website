@@ -6,8 +6,6 @@ import Stats from '../components/Stats.jsx'
 import ServicesSection from '../components/ServicesSection.jsx'
 import WhyUs from '../components/WhyUs.jsx'
 import FeaturedProjects from '../components/FeaturedProjects.jsx'
-import TeamSection from '../components/TeamSection.jsx'
-import CTASection from '../components/CTASection.jsx'
 import '../css/home.css'
 
 function Home({ 
@@ -38,10 +36,6 @@ function Home({
         <WhyUs />
 
         <FeaturedProjects projectsMigrated={projectsMigrated} />
-
-        <TeamSection />
-
-        <CTASection contactMigrated={contactMigrated} />
       </PageTransition>
 
       <Footer 

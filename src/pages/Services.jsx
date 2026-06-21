@@ -267,30 +267,6 @@ function Services({
           </div>
         </section>
 
-        {/* Services CTA Banner */}
-        <section className="py-20 bg-black relative overflow-hidden select-none border-t border-gray-900/40" id="services-cta">
-          <div className="max-w-5xl mx-auto px-6">
-            <Reveal variant="scale-in">
-              <div className="relative rounded-3xl border border-gray-850 bg-gray-950/40 backdrop-blur-xl p-10 md:p-14 text-center overflow-hidden shadow-2xl flex flex-col items-center">
-                
-                <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
-                  Ready to <span className="bg-gradient-to-r from-amber-400 to-amber-600 bg-clip-text text-transparent">Get Started</span>?
-                </h2>
-                <p className="text-xs md:text-sm text-white/50 mb-8 max-w-md leading-relaxed">
-                  Book a direct technical alignment consultation. We will draft scoping details and deployment estimates within 24 hours.
-                </p>
-                <Link
-                  to="/contact"
-                  className="inline-block px-7 py-3.5 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-xs font-bold text-black shadow-lg shadow-amber-500/10 transition-all duration-300 text-center"
-                  id="services-cta-btn"
-                >
-                  Book a Consultation
-                </Link>
-
-              </div>
-            </Reveal>
-          </div>
-        </section>
       </PageTransition>
 
       <Footer 
