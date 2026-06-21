@@ -153,7 +153,7 @@
   align-items: center;
   justify-content: center;
   background: var(--color-accent-glow);
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(194, 120, 58, 0.2);
   border-radius: var(--radius-lg);
   margin-bottom: var(--space-xl);
   color: var(--color-accent-light);
@@ -222,19 +222,19 @@
 }
 
 .team-card__avatar--ag {
-  background: linear-gradient(135deg, #7c3aed, #a78bfa);
+  background: linear-gradient(135deg, #c2783a, #e09850);
 }
 
 .team-card__avatar--ar {
-  background: linear-gradient(135deg, #0ea5e9, #38bdf8);
+  background: linear-gradient(135deg, #2d7d9a, #3ea8c8);
 }
 
 .team-card__avatar--sb {
-  background: linear-gradient(135deg, #10b981, #34d399);
+  background: linear-gradient(135deg, #3a8a5c, #4fb377);
 }
 
 .team-card__avatar--sv {
-  background: linear-gradient(135deg, #f59e0b, #fbbf24);
+  background: linear-gradient(135deg, #c2783a, #e09850);
 }
 
 .team-card__name {

@@ -1,8 +1,3 @@
-/* ============================================
-   TATVA LABS — Contact Form Validation
-   Client-side validation with visual feedback
-   ============================================ */
-
 document.addEventListener('DOMContentLoaded', () => {
   initContactForm();
 });
@@ -39,7 +34,6 @@ function initContactForm() {
     }
   };
 
-  // Real-time validation on blur
   Object.values(fields).forEach(field => {
     if (field.el) {
       field.el.addEventListener('blur', () => {
@@ -47,7 +41,6 @@ function initContactForm() {
       });
 
       field.el.addEventListener('input', () => {
-        // Clear error on typing
         if (field.el.classList.contains('error')) {
           clearFieldError(field);
         }
@@ -67,6 +60,17 @@ function initContactForm() {
     });
 
     if (isValid) {
+      const name = fields.name.el.value.trim();
+      const email = fields.email.el.value.trim();
+      const subject = fields.subject.el.value.trim();
+      const message = fields.message.el.value.trim();
+
+      const body = 'Name: ' + name + '\nEmail: ' + email + '\n\n' + message;
+      const mailtoLink = 'mailto:hello@tatvalabs.com'
+        + '?subject=' + encodeURIComponent(subject)
+        + '&body=' + encodeURIComponent(body);
+
+      window.location.href = mailtoLink;
       showSuccess(form);
     }
   });

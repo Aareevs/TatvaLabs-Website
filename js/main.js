@@ -1,15 +1,10 @@
-/* ============================================
-   TATVA LABS — Main JavaScript
-   Navigation, Scroll Animations, Mobile Menu
-   ============================================ */
-
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initScrollReveal();
   initSmoothScroll();
+  initPageTransition();
 });
 
-/* --- Navigation --- */
 function initNavigation() {
   const nav = document.querySelector('.nav');
   const toggle = document.querySelector('.nav__toggle');
@@ -17,21 +12,16 @@ function initNavigation() {
   const overlay = document.querySelector('.nav__mobile-overlay');
   const mobileLinks = document.querySelectorAll('.nav__mobile-link');
 
-  // Scroll-based glass effect
-  let lastScroll = 0;
   function handleScroll() {
-    const scrollY = window.scrollY;
-    if (scrollY > 40) {
+    if (window.scrollY > 40) {
       nav.classList.add('scrolled');
     } else {
       nav.classList.remove('scrolled');
     }
-    lastScroll = scrollY;
   }
   window.addEventListener('scroll', handleScroll, { passive: true });
-  handleScroll(); // initial check
+  handleScroll();
 
-  // Mobile menu toggle
   if (toggle) {
     toggle.addEventListener('click', () => {
       const isOpen = toggle.classList.contains('open');
@@ -58,7 +48,6 @@ function initNavigation() {
     document.body.style.overflow = open ? 'hidden' : '';
   }
 
-  // Set active nav link
   setActiveNavLink();
 }
 
@@ -74,10 +63,8 @@ function setActiveNavLink() {
   });
 }
 
-/* --- Scroll Reveal Animations --- */
 function initScrollReveal() {
   const reveals = document.querySelectorAll('.reveal');
-
   if (!reveals.length) return;
 
   const observer = new IntersectionObserver((entries) => {
@@ -95,7 +82,6 @@ function initScrollReveal() {
   reveals.forEach(el => observer.observe(el));
 }
 
-/* --- Smooth Scroll for Anchor Links --- */
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', (e) => {
@@ -115,4 +101,8 @@ function initSmoothScroll() {
       }
     });
   });
+}
+
+function initPageTransition() {
+  document.body.classList.add('page-loaded');
 }

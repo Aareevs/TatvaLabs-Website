@@ -147,7 +147,7 @@
   align-items: center;
   justify-content: center;
   background: var(--color-accent-glow);
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(194, 120, 58, 0.2);
   border-radius: var(--radius-md);
   color: var(--color-accent-light);
 }

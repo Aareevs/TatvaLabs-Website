@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 220">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0a0a"/>
+      <stop offset="50%" style="stop-color:#2d1515"/>
+      <stop offset="100%" style="stop-color:#3d2020"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="220" fill="url(#bg)"/>
+  <text x="200" y="95" text-anchor="middle" font-family="system-ui, -apple-system, sans-serif" font-size="32" font-weight="700" fill="#e8e4df" letter-spacing="-0.5">Algo<tspan fill="#d45555">Clash</tspan></text>
+  <text x="200" y="132" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#8a5555" letter-spacing="3">CODE . CLASH . CONQUER</text>
+</svg>

@@ -18,34 +18,34 @@ html {
 
 /* --- Custom Properties --- */
 :root {
-  /* Color Palette */
-  --color-bg-primary: #0a0f1c;
-  --color-bg-secondary: #0f1629;
-  --color-bg-tertiary: #141b2d;
-  --color-bg-card: rgba(20, 27, 45, 0.7);
-  --color-bg-card-hover: rgba(30, 40, 65, 0.8);
-  --color-bg-glass: rgba(10, 15, 28, 0.75);
+  /* Color Palette — Warm Dark + Copper */
+  --color-bg-primary: #0d0d0d;
+  --color-bg-secondary: #141414;
+  --color-bg-tertiary: #1a1a1a;
+  --color-bg-card: rgba(26, 26, 26, 0.8);
+  --color-bg-card-hover: rgba(38, 38, 38, 0.9);
+  --color-bg-glass: rgba(13, 13, 13, 0.8);
 
-  --color-accent-primary: #7c3aed;
-  --color-accent-light: #a78bfa;
-  --color-accent-glow: rgba(124, 58, 237, 0.25);
-  --color-accent-gradient: linear-gradient(135deg, #7c3aed, #a78bfa);
-  --color-accent-gradient-hover: linear-gradient(135deg, #6d28d9, #8b5cf6);
+  --color-accent-primary: #c2783a;
+  --color-accent-light: #e09850;
+  --color-accent-glow: rgba(194, 120, 58, 0.18);
+  --color-accent-gradient: linear-gradient(135deg, #c2783a, #e09850);
+  --color-accent-gradient-hover: linear-gradient(135deg, #a86630, #d08a42);
 
-  --color-cta: #f59e0b;
-  --color-cta-hover: #fbbf24;
-  --color-cta-glow: rgba(245, 158, 11, 0.2);
+  --color-cta: #e09850;
+  --color-cta-hover: #eaad6a;
+  --color-cta-glow: rgba(224, 152, 80, 0.18);
 
-  --color-text-primary: #f1f5f9;
-  --color-text-secondary: #94a3b8;
-  --color-text-muted: #64748b;
-  --color-text-accent: #a78bfa;
+  --color-text-primary: #e8e4df;
+  --color-text-secondary: #9a9590;
+  --color-text-muted: #6b6560;
+  --color-text-accent: #e09850;
 
-  --color-border: rgba(148, 163, 184, 0.1);
-  --color-border-hover: rgba(167, 139, 250, 0.3);
+  --color-border: rgba(154, 149, 144, 0.12);
+  --color-border-hover: rgba(194, 120, 58, 0.3);
 
-  --color-success: #10b981;
-  --color-error: #ef4444;
+  --color-success: #4ead7a;
+  --color-error: #d45555;
 
   /* Typography */
   --font-display: 'Space Grotesk', sans-serif;
@@ -230,7 +230,7 @@ button {
   padding: var(--space-xs) var(--space-md);
   border-radius: var(--radius-full);
   margin-bottom: var(--space-lg);
-  border: 1px solid rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(194, 120, 58, 0.2);
 }
 
 .section-title {
@@ -363,4 +363,14 @@ button {
 :focus-visible {
   outline: 2px solid var(--color-accent-light);
   outline-offset: 2px;
+}
+
+/* --- Page Load Transition --- */
+body {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+body.page-loaded {
+  opacity: 1;
 }
