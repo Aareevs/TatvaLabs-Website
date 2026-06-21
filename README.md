@@ -1,27 +1,29 @@
 # Tatva Labs — Official Website
 
-A premium, modern marketing website for **Tatva Labs**, a technology-driven software development firm specializing in full stack development, startup MVPs, and AI integration. 
+A premium, highly interactive marketing website for **Tatva Labs**, a technology-driven software development firm specializing in full-stack engineering, startup MVPs, custom business applications, and AI integration.
 
-This is a fast, responsive, vanilla web application built without heavy frameworks or build steps, utilizing clean HTML5, CSS3, and modern Javascript.
+The application has been rebuilt using a modern React & Vite framework, utilizing Tailwind CSS, Framer Motion, and 3D Spline scenes to deliver a state-of-the-art interactive experience.
 
 ---
 
 ## ⚡ Key Features
 
-* **Premium Theme & Aesthetics**: Built with a sleek, dark-mode-first aesthetic incorporating glassmorphic navigation, harmonic accent colors, and custom gradient highlights.
-* **Responsive Layout**: Native responsiveness with custom breakpoints for desktop, tablet, and mobile (collapsible slide-in menu).
-* **Interactive Projects Showcase**: A curated gallery of projects (including Campus Critique, Motif, Vaani Setu, AlgoClash, Syntrox, and ATFRO) featuring high-contrast glassmorphic overlay links and custom-styled logos.
-* **Performance-First Design**: Extremely fast loading speeds using only native SVGs, optimized image assets, and minimal scripts.
-* **Micro-Animations**: Underpinned by native CSS transitions, intersection observer scroll reveals, and a dynamic statistical counter trigger.
-* **Contact Form Validation**: Full client-side feedback validation on all input fields with clean visual success and error states.
+* **Sleek Dark Mode & Radial Glows**: Designed with a premium dark-mode aesthetic featuring custom background grids, floating neon particles, and subtle amber radial glows.
+* **Fluid Page Transitions & Scroll Reveals**: Smooth layout animations, magnetic button hover interactions, and lazy scroll reveals powered by **Framer Motion**.
+* **Interactive 3D Spline Elements**: Integrates responsive 3D interactive workspaces and tech-core reactors using `@splinetool/react-spline`.
+* **Projects Showcase**: A curated gallery of projects (Campus Critique, Motif, Vaani Setu, AlgoClash, Syntrox, ATFRO, and Ingredio) with modern glassmorphism project detail layouts.
+* **Responsive Layouts**: Designed to be responsive with collapsible sidebar menus on mobile and optimized tablet layouts.
+* **Production-Ready Assets**: Fully optimized asset directory mounted within the Vite `public/` folder, resolving correctly on Vercel deployments.
 
 ---
 
 ## 🛠️ Technology Stack
 
-* **Structure**: HTML5 (Semantic Structure)
-* **Styling**: Vanilla CSS3 (Custom properties, CSS Grid, Flexbox, Custom Keyframe animations)
-* **Logic**: Modern Vanilla JavaScript (ES6+ for Navbar states, scroll animations, statistics counter, and form validation)
+* **Core Framework**: [React 18](https://react.dev/) + [Vite 5](https://vitejs.dev/) (Fast Hot Module Replacement)
+* **Routing**: [React Router DOM v6](https://reactrouter.com/) (Single Page Application routing)
+* **Styling**: [Tailwind CSS v3](https://tailwindcss.com/) + Custom CSS base styles
+* **Animations**: [Framer Motion v12](https://www.framer.com/motion/) (Spotlights, magnets, transitions, page shifts)
+* **3D Integration**: [Spline Runtime](https://spline.design/) (Interactive 3D viewport scenes)
 
 ---
 
@@ -29,49 +31,56 @@ This is a fast, responsive, vanilla web application built without heavy framewor
 
 ```text
 Tatva Labs/
-├── index.html          # Homepage (Hero, Stats, Services, Projects, Team, CTA)
-├── about.html          # About Us (Story, Mission, Team Profiles)
-├── services.html       # Services Page (Full capabilities details & process timeline)
-├── projects.html       # Projects Portfolio (Complete projects grid with overlays)
-├── contact.html        # Contact Page (Office info, consulting book, interactive form)
-├── assets/
-│   └── images/         # Project logos & image assets
-├── css/
-│   ├── base.css        # Reset, global variables, design system tokens, typography
-│   ├── components.css  # Shared elements (Buttons, Navbar, Footer, Tech Tags)
-│   ├── home.css        # Homepage-specific styling
-│   ├── about.css       # Team grids and about timelines
-│   ├── services.css    # Services detail cards and timeline styles
-│   ├── projects.css    # Portfolio cards, hover states, NDC NDAs
-│   └── contact.css     # Contact layout and form validation cues
-└── js/
-    ├── main.js         # Navbar scroll logic and scroll reveal observer setup
-    ├── counter.js      # Dynamic stats counting logic on visibility
-    └── form.js         # Client-side form validation logic
+├── public/                 # Static assets directory
+│   └── assets/
+│       └── images/         # Project logos & member profile photos
+├── src/
+│   ├── components/         # Reusable React components
+│   │   ├── ui/             # SplineScene wrappers
+│   │   ├── animations/     # Framer Motion utility components (Magnetic, Spotlight, Grid, etc.)
+│   │   ├── CTASection.jsx  # Reusable Call-To-Action component
+│   │   ├── Counter.jsx     # Statistical numbers counter
+│   │   ├── Footer.jsx      # Bottom footer with radial gradients
+│   │   ├── Navbar.jsx      # Navigation header
+│   │   ├── Reveal.jsx      # Intersection observer scroll reveal wrapper
+│   │   └── TeamSection.jsx # Meet the Team cards (About page)
+│   ├── css/                # Page & component styles
+│   ├── pages/              # Single Page Application views
+│   │   ├── Home.jsx        # Landing page (Hero, Stats, Services, Featured, CTA)
+│   │   ├── About.jsx       # About us page (Story, Milestones, Mission, Team)
+│   │   ├── Services.jsx    # Our capabilities & process timeline
+│   │   ├── Projects.jsx    # Showcase grid portfolio
+│   │   └── Contact.jsx     # Consultations book form & inputs validation
+│   ├── App.jsx             # React app routes tree
+│   └── main.jsx            # Vite index bundle entrypoint
+├── index.html              # Main HTML frame
+├── tailwind.config.js      # Tailwind CSS configuration
+├── vite.config.js          # Vite dev server & ports setup
+└── package.json            # Node project dependency configurations
 ```
 
 ---
 
 ## 🚀 Local Development
 
-To run the project locally, you can use any static file server. For example:
+Follow these steps to set up the repository and launch the local server:
 
-### Using Node.js (npx)
-```bash
-npx serve .
-# Or specifying a port:
-npx serve . -p 3000
-```
+1. **Install dependencies**:
+   ```bash
+   npm install
+   ```
 
-### Using Python
-```bash
-# Python 3
-python3 -m http.server 8000
-```
+2. **Run the development server**:
+   ```bash
+   npm run dev
+   ```
+   The local environment will be open at: **http://localhost:3000/**
 
-### Live Server (VS Code Extension)
-1. Install **Live Server** by Ritwick Dey.
-2. Click **Go Live** at the bottom-right corner of VS Code.
+3. **Build the production package**:
+   ```bash
+   npm run build
+   ```
+   This will bundle and optimize the project in the `dist/` directory, copying the `public/` assets as-is for Vercel/CDN serving.
 
 ---
 
@@ -85,4 +94,5 @@ python3 -m http.server 8000
 ---
 
 ## 📄 License & Ownership
-Copyright © 2025 Tatva Labs. All rights reserved. Created and maintained by the **Tatva Labs** engineering team.
+
+Copyright © 2026 Tatva Labs. All rights reserved. Created and maintained by the **Tatva Labs** engineering team.
